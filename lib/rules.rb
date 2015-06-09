@@ -1,5 +1,8 @@
 module Rules
 
+  def enforce(array)
+  end
+
   module_function
 
   def bogof(array)

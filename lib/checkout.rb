@@ -13,7 +13,7 @@ class Checkout
 
   def self.total
     total = @array.inject(0) { |total, product| total + product.price }
-    discount = @rules.inject(0) { |discount, rule| discount + rules.apply(@array) }
+    discount = @rules.inject(0) { |discount, rule| discount + rules.enforce(@array) }
     total - discount
   end
 end
