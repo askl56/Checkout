@@ -1,4 +1,5 @@
 class Item
+
   attr_accessor :name, :price
 
   def initialize(product_code)

@@ -1,22 +1,19 @@
 class Checkout
-  require "item"
 
-  def initialize(pricing_rules)
-    @array = Array.new
-    @pricing_rules = pricing_rules
-  end
+  attr_accessor :array
 
-  def self.total
-    @array.reduce(:+)
+  def initialize(rules)
+    @array = []
+    @rules = rules
   end
 
   def scan(item)
     @array << item
   end
 
-  private
-
-  def pricing_rules
-
+  def self.total
+    total = @array.inject(0) { |total, product| total + product.price }
+    discount = @rules.inject(0) { |discount, rule| discount + rules.apply(@array) }
+    total - discount
   end
 end
