@@ -1,8 +1,9 @@
 class Checkout
   require "item"
 
-  def initialize(array)
-    @array = array
+  def initialize(pricing_rules)
+    @array = Array.new
+    @pricing_rules = pricing_rules
   end
 
   def self.total
