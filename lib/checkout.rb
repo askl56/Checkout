@@ -1,4 +1,5 @@
 class Checkout
+  require "item"
 
   def initialize(array)
     @array = array
@@ -10,5 +11,11 @@ class Checkout
 
   def scan(item)
     @array << item
+  end
+
+  private
+
+  def pricing_rules
+
   end
 end
