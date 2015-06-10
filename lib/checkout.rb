@@ -1,18 +1,19 @@
 class Checkout
 
   attr_accessor :array
+  attr_accessor :rules
 
   def initialize(rules)
-    @array = []
-    @rules = rules
+    self.array = []
+    self.rules = rules
   end
 
   def scan(item)
-    @array << item
+    array << item
   end
 
-  def self.total
-    total = @array.inject(0) { |total, product| total + product.price }
+  def total
+    total = @array.inject(0) { |total, item| total + item.price }
     discount = @rules.inject(0) { |discount, rule| discount + rules.enforce(@array) }
     total - discount
   end
