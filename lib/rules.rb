@@ -1,11 +1,13 @@
 class Rules
 
+  attr_reader :cart
+
   def self.enforce(cart)
     economy_of_scale(cart) + bogof(cart)
   end
 
   def self.bogof(cart)
-    count('Strawberries', cart) / 2.0 * 3.11
+    count('Strawberries', cart) / 2 * 3.11
   end
 
   def self.economy_of_scale(cart)
