@@ -1,19 +1,25 @@
 class Checkout
-
-  attr_accessor :cart
-
-  def initialize(rules)
-    @cart = Array.new
-    @rules = rules
+  def initialize
+    @basket = []
   end
 
-  def scan(code)
-    @cart << Item.new(code)
+  def scan(item)
+    @basket << item
   end
 
   def total
-    total = @cart.inject(0) { |total, item| total + item.price }
-    discount = Rules.enforce(@cart)
-    total - discount
+    @basket.each do |item|
+      if has_rule?(item)
+        adjust_item
+      end
+    end
+  end
+
+  def has_rule?(item)
+    if pricing_rules.include? item
+      true
+    else
+      false
+    end
   end
 end
