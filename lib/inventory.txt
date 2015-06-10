@@ -1,6 +1,0 @@
-Green Tea:
-  price: 3.11
-Strawberries:
-  price: 5.00
-Coffee:
-  price: 11.23

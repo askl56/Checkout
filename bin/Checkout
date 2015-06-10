@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby -w
 
 require_relative '../lib/checkout'
-require_relative '../lib/item'
+require_relative '../lib/inventory'
 require_relative '../lib/rules'
 
