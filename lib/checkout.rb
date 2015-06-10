@@ -9,7 +9,7 @@ class Checkout
   end
 
   def scan(item)
-    array << item
+    array << Item.new(item)
   end
 
   def total

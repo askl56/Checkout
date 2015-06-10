@@ -10,8 +10,8 @@ module Rules
   end
 
   def economy_of_scale(array)
-    berry_count = count(:SR1, array)
-    berry_count >= 3 ? berry_count * 0.50 : 0
+    berry_discount = count(:SR1, array)
+    berry_discount >= 3 ? berry_discount * 0.50 : 0
   end
 
   def count(name, array)

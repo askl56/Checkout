@@ -1,6 +1,7 @@
 class Item
 
-  attr_accessor :name, :price
+  attr_reader :name
+  attr_reader :price
 
   def initialize(product_code)
     case product_code
