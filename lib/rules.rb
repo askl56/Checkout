@@ -1,21 +1,21 @@
-module Rules
+class Rules
 
-  def enforce(array)
+  def self.enforce(cart)
   end
 
-  module_function
-
-  def bogof(array)
-    count(:GR1, array) / 2 * 3.11
+  def bogof(cart)
+    count('Strawberries', cart) / 2 * 3.11
   end
 
-  def economy_of_scale(array)
-    berry_discount = count(:SR1, array)
-    berry_discount >= 3 ? berry_discount * 0.50 : 0
+  def economy_of_scale(cart)
+    discount = count('Green Tea', cart)
+    discount >= 3 ? discount * 0.50 : 0
   end
 
-  def count(name, array)
-    array.inject(0) do |count, product|
+  private
+
+  def count(name, cart)
+    cart.inject(0) do |count, product|
       product.name == name ? count + 1 : count
     end
   end
