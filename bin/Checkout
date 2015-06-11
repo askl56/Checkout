@@ -3,5 +3,3 @@
 require_relative '../lib/checkout'
 require_relative '../lib/inventory'
 require_relative '../lib/pricing_rule'
-
-@items = Inventory.new

@@ -1,9 +1,12 @@
 :GR1:
   :name: Green Tea
+  :code: 'GR1'
   :price: 3.11
 :SR1:
   :name: Strawberries
+  :code: 'SR1'
   :price: 5.00
 :CF1:
   :name: Coffee
+  :code: 'CF1'
   :price: 11.23
