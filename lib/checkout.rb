@@ -15,7 +15,7 @@ class Checkout
   def scan(item)
 
     inventory_item = @inventory.items[item]
-    raise 'whatever' unless inventory_item
+    raise 'error' unless inventory_item
 
     # Each item is simply added to the basket using the
     # shovel syntax.

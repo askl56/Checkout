@@ -19,23 +19,50 @@ describe Checkout do
       end
     end
 
-    describe "if discounts are in play" do
-      before (:each) do
-        @basket = Checkout.new(PricingRules.new)
-        @basket.scan(:GR1)
-        @basket.scan(:SR1)
-        @basket.scan(:GR1)
-        @basket.scan(:GR1)
-        @basket.scan(:CF1)
-      end
+    context "if discounts are in play" do
 
-      context 'Test case 1' do
+      describe 'Test case 1' do
+        before (:each) do
+          @basket = Checkout.new(PricingRules.new)
+          @basket.scan(:GR1)
+          @basket.scan(:SR1)
+          @basket.scan(:GR1)
+          @basket.scan(:GR1)
+          @basket.scan(:CF1)
+        end
 
         it 'should return a total price 22.45' do
           expect(@basket.total).to eq 22.45
         end
       end
 
+      describe "Test case 2" do
+        before (:each) do
+          @basket = Checkout.new(PricingRules.new)
+          @basket.scan(:GR1)
+          @basket.scan(:GR1)
+        end
+
+        it "should return a total price 3.11" do
+          expect(@basket.total).to eq 3.11
+        end
+      end
+
+      describe "Test case 3" do
+        before(:each) do
+          @basket = Checkout.new(PricingRules.new)
+          @basket.scan(:SR1)
+          @basket.scan(:SR1)
+          @basket.scan(:GR1)
+          @basket.scan(:SR1)
+        end
+
+        it "should return a total price 16.61" do
+          expect(@basket.total).to eq 16.61
+
+        end
+
+      end
     end
   end
 end

@@ -1,8 +1,8 @@
 class PricingRules
 
   def bogof(basket)
-    if basket.select { |i| i[:code] == 'GR1' }.count > 2
-      basket.each_with_index { |item, i| item[:price] = 0.00 if i.even? && item[:code] == 'GR1' }
+    if basket.select { |i| i[:code] == 'GR1' }.count >= 2
+      basket.each_with_index { |item, i| item[:price] = 0.00 if i.odd? && item[:code] == 'GR1' }
     end
   end
 
