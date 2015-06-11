@@ -1,12 +1,12 @@
 require 'checkout'
-require 'item'
-require 'rules'
+require 'inventory'
+require 'pricing_rules'
 
 describe Checkout do
   context "Tests the Checkout class" do
     describe "when generic items are added without special rules" do
       before(:each) do
-        @basket = Checkout.new([])
+        @basket = Checkout.new(PricingRules.new)
         @basket.scan(:SR1)
       end
 
@@ -15,13 +15,13 @@ describe Checkout do
       end
 
       it "works with the scan method (adding to cart)" do
-        expect(@basket.cart.count).to eq 1
+        expect(@basket.basket.count).to eq 1
       end
     end
 
     describe "if discounts are in play" do
       before (:each) do
-        @basket = Checkout.new([])
+        @basket = Checkout.new(PricingRules.new)
         @basket.scan(:GR1)
         @basket.scan(:SR1)
         @basket.scan(:GR1)

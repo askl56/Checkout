@@ -18,28 +18,28 @@ describe Inventory do
 
     describe "expect hash to contain correct names" do
       it "contains the correct name for Strawberries" do
-        expect(inventory.items).to include("Strawberries")
+        expect(inventory.items[:SR1]).to include(:name=>"Strawberries")
       end
 
       it "contains the correct name for Green Tea" do
-        expect(inventory.items).to include("Green Tea")
+        expect(inventory.items[:GR1]).to include(:name=>"Green Tea")
       end
 
       it "contains the correct name for Coffee" do
-        expect(inventory.items).to include("Coffee")
+        expect(inventory.items[:CF1]).to include(:name=>"Coffee")
       end
     end
 
     describe "expect hash to contain correct prices" do
       it "contains the correct price for Strawberries" do
-        expect(inventory.items).to include(5.0)
+        expect(inventory.items[:SR1]).to include(:price=>5.0)
       end
       it "contains the correct price for Green Tea" do
-        expect(inventory.items).to include(3.11)
+        expect(inventory.items[:GR1]).to include(:price=>3.11)
       end
 
       it "contains the correct price for Coffee" do
-        expect(inventory.items).to include(11.23)
+        expect(inventory.items[:CF1]).to include(:price=>11.23)
       end
     end
   end
