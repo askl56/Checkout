@@ -1,35 +1,24 @@
 class Checkout
 
-  attr_reader :basket
+  attr_accessor :basket, :pricing_rules
 
   def initialize
 
-    # We initialize the basket as an empty hash.
+    # We initialize the items as an empty array.
 
-    @basket = {}
+    @basket = basket
+    @pricing_rules = pricing_rules
 
   end
 
   def scan(item)
-
-    # First key in the Item has is the Product code, we want to check if the
-    # basket already contains the that code, aka the item.
-
-    # If it does, increment key-value pair (quantity: 1).
-
-    # Otherwise
-
-    product_code = item.keys.first
-
-    if @basket.has_key? product_code
-      @basket[:product_code][:quantity] += 1
-    else
-      @basket[:product_code] = item
-      @basket[:product_code][:quantity] = 0
-    end
+    @basket << item
   end
 
   def total
-    @basket.inject(:+)
+    @pricing_rules.each do |pricing_rule|
+      pricing_rule.action.call(@basket) if pricing_rule.condition.call(@basket)
+    end
+    @basket.inject(0) {|sum, item| sum + item.price}
   end
 end
