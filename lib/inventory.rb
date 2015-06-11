@@ -1,8 +1,7 @@
 require 'yaml'
 
 
-INVENTORY_LIST = File.join(File.dirname(__FILE__), "..", "config/", "inventory.yaml")
-
+INVENTORY = File.join(File.dirname(__FILE__), "..", "config/", "inventory.yaml")
 
 class Inventory
 
@@ -11,7 +10,7 @@ class Inventory
   # The inventory list allows for easy adding of items.
 
   def initialize
-    @items = YAML.load_file INVENTORY_LIST
+    @items = YAML.load_file INVENTORY
   end
 
 

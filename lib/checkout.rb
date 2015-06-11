@@ -6,20 +6,22 @@ class Checkout
 
     # We initialize the items as an empty array.
 
-    @basket = basket
+    @basket = []
     @pricing_rules = pricing_rules
 
   end
 
   def scan(item)
 
-  	# Each item is simply added to the basket using the
-  	# shovel syntax.
+    # Each item is simply added to the basket using the
+    # shovel syntax.
 
     @basket << item
   end
 
   def total
-
+    PricingRules.bogof(@basket)
+    PricingRules.bulk_buy(@basket)
+    @basket.map { |i| i.price }.reduce(:+)
   end
 end
