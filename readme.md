@@ -36,3 +36,13 @@ Test data
  
 3. Basket: SR1,SR1,GR1,SR1  
    Total price expected: £16.61
+
+Usage
+----
+
+When running in IRB, simply do 
+```
+load './bin/Checkout'
+```
+
+to load all required files. 
