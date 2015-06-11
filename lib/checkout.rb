@@ -4,7 +4,7 @@ class Checkout
 
   def initialize(pricing_rules = PricingRules.new)
 
-    # We initialize the items as an empty array.
+    # I initialize the items as an empty array.
 
     @basket = []
     @pricing_rules = pricing_rules
@@ -13,6 +13,9 @@ class Checkout
   end
 
   def scan(item)
+
+  	# I ensure the item exists in the inventory.yaml file
+  	# before allowing it to be added to the basket instance.
 
     inventory_item = @inventory.items[item]
     raise 'error' unless inventory_item
