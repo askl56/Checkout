@@ -12,13 +12,14 @@ class Checkout
   end
 
   def scan(item)
+
+  	# Each item is simply added to the basket using the
+  	# shovel syntax.
+
     @basket << item
   end
 
   def total
-    @pricing_rules.each do |pricing_rule|
-      pricing_rule.action.call(@basket) if pricing_rule.condition.call(@basket)
-    end
-    @basket.inject(0) {|sum, item| sum + item.price}
+
   end
 end
