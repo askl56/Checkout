@@ -40,7 +40,7 @@ Test data
 Usage
 ----
 
-When running in IRB, simply do 
+When running in IRB, simply run 
 ```
 load './bin/Checkout'
 ```

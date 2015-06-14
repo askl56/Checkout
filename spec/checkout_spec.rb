@@ -59,9 +59,7 @@ describe Checkout do
 
         it "should return a total price 16.61" do
           expect(@basket.total).to eq 16.61
-
         end
-
       end
     end
   end

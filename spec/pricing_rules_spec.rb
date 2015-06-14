@@ -44,9 +44,7 @@ describe PricingRules do
         @basket.scan(:SR1)
         @basket.scan(:SR1)
         expect(@basket.total).to eq 13.5
-
       end
-
     end
   end
 end
