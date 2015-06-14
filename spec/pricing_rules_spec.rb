@@ -38,6 +38,7 @@ describe PricingRules do
         expect(@basket.total).to eq 10.0
       end
     end
+
     describe "it should apply discount to bulk buying" do
       it "applies discount with 3 strawberries" do
         @basket.scan(:SR1)
